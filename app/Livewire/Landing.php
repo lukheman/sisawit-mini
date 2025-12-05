@@ -2,7 +2,6 @@
 
 namespace App\Livewire;
 
-use App\Models\Penyakit;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 

@@ -9,7 +9,7 @@
         <div class="sidebar-header position-relative">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="logo">
-                    <a href="">JUMSER</a>
+                    <a href="">SISAWIT</a>
                 </div>
                 <!-- theme toggle, biarin aja -->
             </div>
@@ -24,66 +24,38 @@
             <p class="font-bold ms-3 mb-0">{{ $user->name }} - {{ $user->role}}</p>
         </div>
         <hr>
-        
+
         <x-nav-link icon="bi-person-circle"
             href="{{ route('profile')}}"
             :active="request()->routeIs('profile')">
             Profil
         </x-nav-link>
-        
+
         <li class="sidebar-title">Navigasi Utama</li>
-        
+
         <x-nav-link icon="bi-speedometer2"
             href="{{ route('dashboard')}}"
             :active="request()->routeIs('dashboard')">
             Beranda
         </x-nav-link>
-        
-        @if ($role === Role::BENDAHARA_KELAS)
+
+        @if ($role === Role::ADMIN)
             <x-nav-link icon="bi-calendar-week"
-                href="{{ route('kas.mingguan.detail')}}"
-                :active="request()->routeIs('kas.mingguan.detail')">
-                Kas Mingguan
+                href="{{ route('table.users')}}"
+                :active="request()->routeIs('table.users')">
+                    Pengguna
+            </x-nav-link>
+
+            <x-nav-link icon="bi-calendar-week"
+                href="{{ route('table.bibit')}}"
+                :active="request()->routeIs('table.bibit')">
+                    Bibit
             </x-nav-link>
         @endif
-        
-        @if ($role === Role::PEMBINA_OSIS)
-            <x-nav-link icon="bi-building"
-                href="{{ route('kelas-table')}}"
-                :active="request()->routeIs('kelas-table')">
-                Kelas
-            </x-nav-link>
-            
-            <x-nav-link icon="bi-people"
-                href="{{ route('user-table')}}"
-                :active="request()->routeIs('user-table')">
-                Pengguna
-            </x-nav-link>
-            
-        @endif
-        
-        @if ($role === Role::BENDAHARA_OSIS)
-            <x-nav-link icon="bi-building"
-                href="{{ route('kelas-table')}}"
-                :active="request()->routeIs('kelas-table')">
-                Kelas
-            </x-nav-link>
-            
-            <x-nav-link icon="bi-arrow-up-circle"
-                href="{{ route('pemasukan-table')}}"
-                :active="request()->routeIs('pemasukan-table')">
-                Pemasukan
-            </x-nav-link>
-            
-            <x-nav-link icon="bi-arrow-down-circle"
-                href="{{ route('pengeluaran-table')}}"
-                :active="request()->routeIs('pengeluaran-table')">
-                Pengeluaran
-            </x-nav-link>
-        @endif
-        
+
+
         <li class="sidebar-title">Akun</li>
-        
+
         <x-nav-link icon="bi-box-arrow-right"
             href="{{ route('logout')}}">
             Keluar

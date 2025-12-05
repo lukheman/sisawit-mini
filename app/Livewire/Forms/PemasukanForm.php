@@ -3,7 +3,6 @@
 namespace App\Livewire\Forms;
 
 use App\Models\Pemasukan;
-use Illuminate\Validation\Rule;
 use Livewire\Form;
 
 class PemasukanForm extends Form
@@ -45,10 +44,11 @@ class PemasukanForm extends Form
         $this->reset();
     }
 
-    public function fill($id) {
+    public function fill($id)
+    {
 
         $this->pemasukan = Pemasukan::query()->find($id);
-                $this->kas_pembayaran_id = $this->pemasukan->kas_pembayaran_id;
+        $this->kas_pembayaran_id = $this->pemasukan->kas_pembayaran_id;
         $this->nominal = $this->pemasukan->nominal;
 
     }
